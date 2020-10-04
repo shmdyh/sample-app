@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { makeStyles, Theme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
@@ -6,8 +6,7 @@ import Tab from "@material-ui/core/Tab";
 
 import GisMap from "../../molecules/GisMap";
 
-
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function a11yProps(index: any) {
   return {
     id: `simple-tab-${index}`,
@@ -27,11 +26,15 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export default function SimpleTabs() {
+export default function SimpleTabs(): ReactElement {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
-  const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+  // const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+  const handleChange = (
+    event: React.ChangeEvent<unknown>,
+    newValue: number
+  ) => {
     setValue(newValue);
   };
 

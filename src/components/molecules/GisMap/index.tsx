@@ -1,17 +1,17 @@
-import React from "react";
+import React, { ReactNode, ReactElement } from "react";
 import Typography from "@material-ui/core/Typography";
 import InfoModal from "../../organisms/InfoModalWindow";
 
 import mapImage from "../../../common/map_open.png";
 
 interface TabPanelProps {
-  children?: React.ReactNode;
-  index: any;
-  value: any;
+  children?: ReactNode; // eslint-disable-line react/require-default-props
+  index: any; // eslint-disable-line @typescript-eslint/no-explicit-any
+  value: any; // eslint-disable-line @typescript-eslint/no-explicit-any
   title: string;
 }
 
-export default function TabPanel(props: TabPanelProps) {
+export default function TabPanel(props: TabPanelProps): ReactElement {
   const { children, value, index, title, ...other } = props;
 
   return (
@@ -24,7 +24,7 @@ export default function TabPanel(props: TabPanelProps) {
     >
       <Typography>{props.title}</Typography>
       <img src={mapImage} alt="map" width="400px" height="300px" />
-      <InfoModal title={"Open Modal: " + index}/>
+      <InfoModal title={`Open Modal: ${index}`} />
     </div>
   );
 }
